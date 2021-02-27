@@ -1,4 +1,6 @@
 :root {
+    --modal: rgba(242, 243, 245, 0.8);
+    --shadow: rgba(0,0,0, 0.5);
     --white:#fff;
     --background: #f2f3f5;
     --gray-line: #dcdde0;
