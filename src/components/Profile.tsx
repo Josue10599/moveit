@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import { ChallengeContext } from '../context/ChallengedContext';
+import datas from '../../datas.json';
+
 import styles from '../styles/components/Profile.module.css';
 
 export function Profile() {
@@ -7,10 +9,10 @@ export function Profile() {
 
     return (
         <div className={styles.profileContainer}>
-            <img src="https://github.com/josue10599.png" alt="Josue Lopes" />
+            <img src={`https://github.com/${datas.usename_github}.png`} alt={datas.name} />
             <div>
                 <strong>
-                    Josue Lopes
+                    {datas.name}
                 </strong>
                 <p>
                     <img src='icons/level.svg' alt="Lvel" />

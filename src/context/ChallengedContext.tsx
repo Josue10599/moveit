@@ -1,33 +1,9 @@
-import { createContext, useState, ReactNode, useEffect } from 'react';
-import challenges from '../../challenges.json';
+import { createContext, useState, useEffect } from 'react';
+import datas from '../../datas.json';
 import Cookies from 'js-cookie';
 import { LevelUpModal } from '../components/LevelUpModal';
-
-interface Challenge {
-    type: 'body' | 'eye';
-    description: string;
-    amount: number;
-}
-
-interface ChallengeProviderProps {
-    children: ReactNode;
-    level: number;
-    challengesCompleted: number;
-    currentExperience: number;
-}
-
-interface ChallengeContextData {
-    level: number;
-    currentExperience: number;
-    experienceToNextLevel: number;
-    challengesCompleted: number;
-    activeChallenge: Challenge;
-    levelUp: () => void;
-    startNewChallenge: () => void;
-    resetChallenge: () => void;
-    completeChallenge: () => void;
-    closeLevelUpModal: () => void;
-}
+import { ChallengeContextData } from '../model/ChallengeContextData';
+import { ChallengeProviderProps } from '../model/ChallengeProviderProps';
 
 export const ChallengeContext = createContext({} as ChallengeContextData);
 
@@ -56,8 +32,8 @@ export function ChallengeProvider({ children, ...rest }: ChallengeProviderProps)
     }
 
     function startNewChallenge() {
-        const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
-        const challenge = challenges[randomChallengeIndex];
+        const randomChallengeIndex = Math.floor(Math.random() * datas.challenges.length);
+        const challenge = datas.challenges[randomChallengeIndex];
 
         setActiveChallenge(challenge);
 
